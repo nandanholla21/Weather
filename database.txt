@@ -1,0 +1,3 @@
+Udupi 29.73 13.35 74.75 IN
+Amsterdam 21.87 52.374 4.8897 NL
+Amsterdam 23.25 52.374 4.8897 NL
