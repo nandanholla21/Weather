@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+    background-color: cornflowerblue;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+}
+#box-1, #box-2{
+    background-color: white;
+    padding: 6%;
+    margin-top: 4%;
+}
+.city-div{
+    margin: 1.5%;
+}
+.but-1{
+    margin:1.5%;
+}
+.tt{
+    margin: 7%;
+}

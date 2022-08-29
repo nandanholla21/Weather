@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="static/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="box-1">
+        <form class="form-1" action="/weather-request" method="POST">
+            <div class="mb-3 city-div">
+              <label for="exampleInputEmail1" class="form-label">Enter the City name you want to get details of</label>
+              <input type="text" name="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required autocomplete="off">
+              <div id="emailHelp" class="form-text">This field is required.</div>
+            </div>
+            <button type="submit" class="btn btn-primary but-1">Find</button>
+          </form>
+    </div>
+    <div class="container" id="box-2">
+      <h2>Show Map</h2>
+      <form class="form-1" action="/map-request" method="POST">
+        <div class="mb-3 city-div">
+          <label for="example" class="form-label">Enter the City name you want to display on map</label>
+          <input type="text" name="input" class="form-control" id="example" aria-describedby="map-help" required autocomplete="off">
+          <div id="map-help" class="form-text">This field is required.</div>
+        </div>
+        <button type="submit" class="btn btn-primary but-1">Find on map</button>
+      </form>
+      <p>
+      </p>
+    </div>
+    <div class="container tt" id="box-2">
+      <h2>The database contents are: </h2>
+      {% if values|length == 0 %}
+      <h4>Database Empty</h4>
+      {% else %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">SNo</th> 
+            <th scope="col">City</th>
+            <th scope="col">Temperature</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Country_Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in values %}
+            <tr>
+              <th scope="row">{{loop.index}}</th>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              <td>{{row[2]}}</td>
+              <td>{{row[3]}}</td>
+              <td>{{row[4]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+    <p></p>
+</body>
+</html>
